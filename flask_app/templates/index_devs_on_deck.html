@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Preahvihear&family=Roboto:ital,wght@0,400;1,100&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='stylex.css') }}"> <!--Link to style.css with jinja-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous"><!--Link for boostrap-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script><!--script for boostrap-->
+
+
+    <title>Index</title>
+</head>
+<body>
+    <header>
+        <div class="header1">
+            <h1 style="color: white;"><span style="color: rgb(249, 157, 194) ;">Dev</span>el<span style="color:  rgb(237, 208, 134);">oper</span> See<span style="color: #0d6efd ;">ker</span></h1>
+        </div>
+        <div class="header2">
+            <nav id="headernavbarNav" class="navbar navbar-expand-lg navbar-scroll navbar-light">
+                <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+                    <ul class="nav nav-pills" id="pills-tab" role="tablist">
+                        <li class="nav-item" role="presentation">
+                        {% with messages = get_flashed_messages() %}
+                            {% if messages %}
+                                {% if messages[0][1]==1 or messages[0][1]==0%}
+                                <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="false"><span style="color: aliceblue;">¿Are you a Developer?</span></button> 
+                                {%else%}
+                                <button class="nav-link" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="false"><span style="color: aliceblue;">¿Are you a Developer?</span></button>
+                                {% endif %}
+                            {%else%}
+                                <button class="nav-link" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="false"><span style="color: aliceblue;">¿Are you a Developer?</span></button>
+                            {% endif %}
+                        {% endwith %}
+                        </li>
+                        <li class="nav-item" role="presentation">
+                        {% with messages = get_flashed_messages() %}
+                            {% if messages %}
+                                {% if messages[0][1]==3 or messages[0][1]==4%}
+                                    <button class="nav-link active" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="false"><span style="color: rgb(237, 208, 134);">¿Are you an organization?</span></button>      
+                                {%else%}
+                                    <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="false"><span style="color: rgb(237, 208, 134);">¿Are you an organization?</span></button>
+                                {% endif %}
+                            {%else%}
+                                <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="false"><span style="color: rgb(237, 208, 134);">¿Are you an organization?</span></button>
+                            {% endif %}
+                        {% endwith %}
+                        </li>
+                        <li class="nav-item" role="presentation">
+                    {% with messages = get_flashed_messages() %}  <!-- declara una variable llamada mensajes-->
+                        {% if messages %}<!-- comprobar si hay algún mensaje -->
+                            <button class="nav-link" id="pills-contact-tab" data-bs-toggle="pill" data-bs-target="#pills-contact" type="button" role="tab" aria-controls="pills-contact" aria-selected="false"><span style="color:  rgb(249, 157, 194);">Abaut Us</span> </button>    
+                        {%else%}
+                            <button class="nav-link active" id="pills-contact-tab" data-bs-toggle="pill" data-bs-target="#pills-contact" type="button" role="tab" aria-controls="pills-contact" aria-selected="false"><span style="color:  rgb(249, 157, 194);">Abaut Us</span> </button>    
+                        {% endif %}
+                    {% endwith %}
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="pills-us-tab" data-bs-toggle="pill" data-bs-target="#pills-us" type="button" role="tab" aria-controls="pills-contact" aria-selected="false"><span style="color:  rgb(249, 157, 194);">Contact Us</span></button>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <div class="tab-content" id="pills-tabContent">
+<!--THis is the section for developers-->
+                        {% with messages = get_flashed_messages() %}
+                            {% if messages %}
+                                {% if messages[0][1]==1 or messages[0][1]==0%}
+            <div class="tab-pane show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab" tabindex="0">
+                                {%else%}
+            <div class="tab-pane fade" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab" tabindex="0">                                
+                                {% endif %}
+                            {%else%}
+            <div class="tab-pane fade" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab" tabindex="0">
+                            {% endif %}
+                        {% endwith %}
+                <div id='card_about_us' class="card" style="width: 70rem;">
+                    <div class="card-body">
+                        <h2 class="card-title"><span style="color: rgb(195, 208, 209) ;">Hello Developer!!!</span></h2>
+                        {% with messages = get_flashed_messages() %}  <!-- declara una variable llamada mensajes-->
+                            {% if messages %}<!-- comprobar si hay algún mensaje -->
+                                {% for message in messages %}<!-- recorrer los mensajes -->
+                                    {% if message[1]==1 %}
+                                        <p style="color: rgb(151, 10, 10);">{{message[0]}}</p><!-- muestra cada mensaje en una etiqueta de párrafo -->
+                                    {% endif %}
+                                {% endfor %}
+                            {% endif %}
+                        {% endwith %}
+                        <p class="card-text">We are glad you are back, please log in and get the best out of our comunity. Let's Connect You To A Job!!!!!!!</p>
+                        <form class="form" action="{{url_for('index')}}" method="POST">
+                            <div class="row mb-3">
+                                <input type="hidden" name="which_form" value="log_in">
+                                <label for="email" class="col-sm-2 col-form-label">Email:</label>
+                                <div class="col-sm-10">
+                                    <input type="email" class="form-control" name="email" id="email">
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <label for="password" class="col-sm-2 col-form-label">Password</label>
+                                <div class="col-sm-10">
+                                    <input type="password" class="form-control" name="password" id="password">
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Sign in</button>
+                        </form>
+                    </div>
+                    <div class="card-footer">
+                        <p class="card-text">If you are new in the page please click on the register button and you will be invited to submit your details and create your profile.</p>
+                        <p class="d-inline-flex gap-1">
+                            <a class="btn btn-primary" data-bs-toggle="collapse" href="#collapseExample4" role="button" aria-expanded="false" aria-controls="collapseExample4">
+                                Register (Sign Up)
+                            </a>
+                        </p>
+                        {% with messages = get_flashed_messages() %}  <!-- declara una variable llamada mensajes-->
+                            {% if messages %}<!-- comprobar si hay algún mensaje -->
+                                {% if messages[0][1]==0 %}
+                        <div class="shown" id="collapseExample4">
+                                {%else%}
+                        <div class="collapse" id="collapseExample4">
+                                {% endif %}
+                            {%else%}
+                        <div class="collapse" id="collapseExample4">
+                            {% endif %}
+                        {% endwith %}
+                            <div id="card_form_register" class="card card-body">
+                                <form  class="form row g-3" action="{{url_for('index')}}" method="POST">
+                                    <div >
+                                        <h2 class="card-title"><span style="color: rgb(195, 208, 209) ;">Developer Sign Up</span></h2>
+                                        {% with messages = get_flashed_messages() %}  <!-- declara una variable llamada mensajes-->
+                                        {% if messages %}<!-- comprobar si hay algún mensaje -->
+                                            {% for message in messages %}<!-- recorrer los mensajes -->
+                                                {% if message[1]==0 %}
+                                                    <p style="color: red;">{{message[0]}}</p><!-- muestra cada mensaje en una etiqueta de párrafo -->
+                                                {% endif %}
+                                            {% endfor %}
+                                        {% endif %}
+                                    {% endwith %}
+                                    </div>
+                                    <div class="col-md-6">
+                                        
+                                        <input type="hidden" name="which_form" value="register_user">
+                                        <label for="first_name" class="form-label" >First Name:</label>
+                                        <input type="text" class="form-control" name="first_name" id="first_name">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="last_name" class="form-label">Last Name:</label>
+                                        <input type="text" class="form-control" name="last_name" id="last_name">
+                                    </div>
+                                    <div class="col-md-12">
+                                        <label for="email" class="form-label">Email:</label>
+                                        <input type="email" class="form-control" name="email" id="email">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="password" class="form-label">Password:</label>
+                                        <input type="password" class="form-control" name="password" id="password">
+                                    </div>
+                                    <div class="col-md-6"> 
+                                        <label for="passwordconfir" class="form-label">Confirm Password:</label>
+                                        <input type="password" class="form-control" name="passwordconfir" id="passwordconfir">
+                                    </div>
+                                    <div class="col-md-12">
+                                        <label for="country" class="form-label" class="form-label">Country:</label>
+                                        <select id="country" class="form-control" name="country">
+                                        </select>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <input class="btn btn-primary" type="submit" value="Register">
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+<!--THis is the end of the section for developers-->
+<!--THis is the section for organization-->
+
+                        {% with messages = get_flashed_messages() %}
+                            {% if messages %}
+                                {% if messages[0][1]==3 or messages[0][1]==4%}
+            <div class="tab-pane show active" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab" tabindex="0">
+                                {%else%}
+            <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab" tabindex="0">                              
+                                {% endif %}
+                            {%else%}
+            <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab" tabindex="0">
+                            {% endif %}
+                        {% endwith %}
+
+            
+                <div id='card_about_us' class="card" style="width: 70rem;">
+                    <div class="card-body">
+                        <h2 class="card-title"><span style="color: rgb(237, 208, 134) ;">Hello Recruiters!!!</span></h2>
+                        {% with messages = get_flashed_messages() %}  <!-- declara una variable llamada mensajes-->
+                            {% if messages %}<!-- comprobar si hay algún mensaje -->
+                                {% for message in messages %}<!-- recorrer los mensajes -->
+                                    {% if message[1]==3 %}
+                                        <p style="color: rgb(151, 10, 10);">{{message[0]}}</p><!-- muestra cada mensaje en una etiqueta de párrafo -->
+                                    {% endif %}
+                                {% endfor %}
+                            {% endif %}
+                        {% endwith %}
+                        <p class="card-text">We are glad you are back, please log in and get the best out of our comunity. If you are new in the page please click on the register button and you will be invited to submit the details of your company or organization.</p>
+                        <form class="form" action="{{url_for('index2')}}" method="POST">
+                            <div class="row mb-3">
+                                <input type="hidden" name="which_form" value="log_in_organization">
+                                <label for="email" class="col-sm-2 col-form-label">Org Email:</label>
+                                <div class="col-sm-10">
+                                    <input type="email" class="form-control" name="email" id="email">
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <label for="password" class="col-sm-2 col-form-label">Password</label>
+                                <div class="col-sm-10">
+                                    <input type="password" class="form-control" name="password" id="password">
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Sign in</button>
+                        </form>
+                    </div>
+                    <div class="card-footer">
+                        <p class="card-text">If you are new in the page please click on the register button and you will be invited to submit your details and create your profile.</p>
+                        <p class="d-inline-flex gap-1">
+                            <a class="btn btn-primary" data-bs-toggle="collapse" href="#collapseExample4" role="button" aria-expanded="false" aria-controls="collapseExample4">
+                                Register (Sign Up)
+                            </a>
+                        </p>
+                        {% with messages = get_flashed_messages() %}  <!-- declara una variable llamada mensajes-->
+                            {% if messages %}<!-- comprobar si hay algún mensaje -->
+                                {% if messages[0][1]==4 %}
+                        <div class="shown" id="collapseExample4">
+                                {%else%}
+                        <div class="collapse" id="collapseExample4">
+                                {% endif %}
+                            {%else%}
+                        <div class="collapse" id="collapseExample4">
+                            {% endif %}
+                        {% endwith %}
+                            <div id="card_form_register" class="card card-body">
+                                <form  class="form row g-3" action="{{url_for('index2')}}" method="POST">
+                                    <div >
+                                        <h2 class="card-title"><span style="color: rgb(237, 208, 134) ;">Organization Sign Up</span></h2>
+                                        {% with messages = get_flashed_messages() %}  <!-- declara una variable llamada mensajes-->
+                                        {% if messages %}<!-- comprobar si hay algún mensaje -->
+                                            {% for message in messages %}<!-- recorrer los mensajes -->
+                                                {% if message[1]==4 %}
+                                                    <p style="color: red;">{{message[0]}}</p><!-- muestra cada mensaje en una etiqueta de párrafo -->
+                                                {% endif %}
+                                            {% endfor %}
+                                        {% endif %}
+                                    {% endwith %}
+                                    </div>
+                                    <div class="col-md-12">
+                                        <label for="org_name" class="form-label">Org Name:</label>
+                                        <input type="text" class="form-control" name="org_name" id="org_name">
+                                    </div>
+                                    <div class="col-md-6">
+                                        
+                                        <input type="hidden" name="which_form" value="register_organization">
+                                        <label for="first_name" class="form-label" >First Name:</label>
+                                        <input type="text" class="form-control" name="first_name" id="first_name">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="last_name" class="form-label">Last Name:</label>
+                                        <input type="text" class="form-control" name="last_name" id="last_name">
+                                    </div>
+                                    <div class="col-md-12">
+                                        <label for="email" class="form-label">Contact Email:</label>
+                                        <input type="email" class="form-control" name="email" id="email">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="address" class="form-label">Org Address:</label>
+                                        <input type="text" class="form-control" name="address" id="address">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="country" class="form-label" class="form-label">Country:</label>
+                                        <select id="country2" class="form-control" name="country">
+                                        </select>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="password" class="form-label">Password:</label>
+                                        <input type="password" class="form-control" name="password" id="password">
+                                    </div>
+                                    <div class="col-md-6"> 
+                                        <label for="passwordconfir" class="form-label">Confirm Password:</label>
+                                        <input type="password" class="form-control" name="passwordconfir" id="passwordconfir">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <input class="btn btn-primary" type="submit" value="Register">
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+<!--THis is the end of the section for organization-->
+<!--THis is the section for the About Us-->
+    {% with messages = get_flashed_messages() %}  <!-- declara una variable llamada mensajes-->
+        {% if messages %}<!-- comprobar si hay algún mensaje -->
+            <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab" tabindex="0">
+        {%else%}
+            <div class="tab-pane show active" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab" tabindex="0">
+        {% endif %}
+    {% endwith %}
+            
+                <div id='card_about_us' class="card" style="width: 70rem;">
+                    <div class="card-body">
+                        <h5 class="card-title">Welcome to <span style="color: rgb(249, 157, 194) ;">Dev</span>el<span style="color:  rgb(237, 208, 134);">oper</span> See<span style="color: #0d6efd ;">ker</span></h5>
+                        <p class="card-text">At Developer Seeker, we're committed to revolutionizing the way professionals and organizations connect in the world of programming. Our platform is designed to be the central hub where skilled developers and forward-thinking companies converge, eliminating the arduous task of finding the perfect match for specific programming roles.</p>
+                    </div>
+                    <div class="card-body">
+                        <p id="visions" class="d-inline-flex gap-1">
+                            <a class="btn btn-primary" data-bs-toggle="collapse" href="#multiCollapseExample1" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">Empowering Developers</a>
+                            <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#multiCollapseExample2" aria-expanded="false" aria-controls="multiCollapseExample2">Unmatched Opportunities for Recruiters</button>
+                            <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#multiCollapseExample3" aria-expanded="false" aria-controls="multiCollapseExample3">Building a Thriving Programming Community</button>
+                        </p>
+                        <div class="row">
+                            <div class="col">
+                                <div class="collapse multi-collapse" id="multiCollapseExample1">
+                                    <div class="card card-body">
+                                        For developers, our platform serves as a launchpad for showcasing their expertise, streamlining the process of finding job opportunities, and simplifying the way they present their skills. By creating comprehensive profiles, developers can effortlessly display their mastery of various programming languages. We've also integrated features to seamlessly import and centralize their main information from other platforms like GitHub, making it convenient to compile a holistic representation of their abilities in one place.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="collapse multi-collapse" id="multiCollapseExample2">
+                                    <div class="card card-body">
+                                        On the other side, we provide a robust source of information for recruiters. Our system is designed to simplify the recruitment process by offering a pool of talented programmers. Recruiters gain access to a wide array of profiles and can effortlessly navigate through a wealth of skills and experiences. Our innovative system can intelligently match open roles with the most suitable candidates, streamlining the hiring process and ensuring that the right fit is found efficiently.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="collapse multi-collapse" id="multiCollapseExample3">
+                                    <div class="card card-body">
+                                        Developer Seeker is more than a platform; it's a thriving community that enhances the programming experience. Whether you're a seasoned developer seeking new opportunities or a company looking for the perfect addition to your team, our goal is to facilitate connections that propel the tech industry forward. We believe in making the process as seamless as possible, fostering an environment where developers can thrive and companies can discover their ideal candidates hassle-free.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text">
+                            Join us in creating a dynamic, forward-thinking ecosystem where skills meet opportunities, and the future of programming is shaped collaboratively. Welcome to Developer Seeker—where connections are made, and careers are forged.
+                        </p>
+                    </div>
+                </div>
+            </div>
+<!--THis the end of section About Us-->
+<!--THis is the section for the Contact Us-->
+            <div class="tab-pane fade" id="pills-us" role="tabpanel" aria-labelledby="pills-disabled-tab" tabindex="0">
+                <div id='card_about_us' class="card" style="width: 70rem;">
+                    <div class="card-body">
+                        <h5 class="card-title"><span style="color: rgb(249, 157, 194) ;">Contact Us</span></h5>
+                        <p class="card-text">We are glad you are trying to get in touch with us, please feel free to send us an email by clicking <a href="mailto:kevin.arturo.jacome.duque@gmail.com">here</a> with your feedback and we will get back to you as soon as possible.</p>
+                    </div>
+                </div>
+            </div>
+<!--THis the end of section Contact Us-->
+        </div>
+    </main>
+    <footer>
+
+    </footer>
+    <script src="{{ url_for('static', filename='script_api.js') }}"></script> <!--Script for JS file if exists-->
+    
+</body>
+</html>

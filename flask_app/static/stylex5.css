@@ -1,0 +1,133 @@
+/* Reset and base styles */
+* {
+    padding: 0;
+    margin: 0;
+    font-family: 'Preahvihear', sans-serif;
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-image: url("images/background_img.jpg");
+    background-size: cover;
+}
+
+header {
+    padding-left: 2%;
+    padding-right: 2%;
+    background-image: linear-gradient(to bottom, rgba(53, 54, 59, 0.785), rgba(161, 28, 127, 0.73));
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Other sections and card styles... */
+
+main {
+    display: flex;
+    height: 100%;
+    overflow: auto;
+    box-sizing: border-box;
+    padding-top: 2%;
+    justify-content: space-evenly;
+}
+
+#card_about_us1, #card_about_us2 {
+    display: flex;
+    flex-direction: column;
+    padding: 1%;
+    max-width: 40rem;
+    overflow: hidden; /* Hide overflow content */
+}
+
+.card-header {
+    flex: 0.1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#user_headerb{width: 50%;}
+
+.card-body {
+    flex: 3;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+/* For the user card section */
+#card-body2a {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto; /* Add scrolling for the user card section */
+    max-height: 400px; /* Set a maximum height to enable scrolling */
+}
+
+.card-body2a1 {
+    margin: 1%; /* Adjust margin for each user card */
+}
+
+/* For each card inside the user section */
+.card.card-body2a1 {
+    margin-bottom: 1rem; /* Adjust the margin for each user card */
+}
+
+.card-footer {
+    flex: 0.1;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.icons {
+    max-width: 50px; /* Adjust the maximum width of the images */
+    max-height: 50px; /* Adjust the maximum height of the images */
+    margin: 5px; /* Adjust the margin as needed */
+    cursor: pointer;
+}
+
+
+
+.profile-image {
+    border-radius: 50%;
+    width: 80px; /* Adjust the size as needed */
+    height: 80px;
+    object-fit: cover;
+    margin: 20px;
+}
+
+.profile-info {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.profile-info h2 {
+  font-weight: bold;
+  color: #0d6efd;
+  margin: 0;
+}
+
+.card-body p {
+  margin: 0;
+  color: #6c757d;
+}
+
+.card-body1 {
+  margin-bottom: 20px;
+}
+
+#dash{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.header2{
+    display: flex;
+
+}
+
+#dashbutton{margin-right: 5%;}

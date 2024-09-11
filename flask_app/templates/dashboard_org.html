@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Preahvihear&family=Roboto:ital,wght@0,400;1,100&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='stylex2.css') }}"> <!--Link to style.css with jinja-->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous"><!--Link for boostrap-->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script><!--script for boostrap-->
+  <title>Document</title>
+</head>
+<body>
+  <header>
+    <div class="header1">
+        <h1 style="color: white;"><span style="color: rgb(249, 157, 194) ;">Dev</span>el<span style="color:  rgb(237, 208, 134);">oper</span> See<span style="color: #0d6efd ;">ker</span></h1>
+    </div>
+    <div class="header2">
+      <form class="form" action="{{ url_for('log_out') }}" method="POST">
+        <input class='btn btn-warning' type="submit" value="logout">
+      </form>
+    </div>
+  </header>
+  <main>
+    <div id="card_about_us1" class="card text-center" style="width: 40rem;">
+      <div class="card-header">
+        <h2 class="align-middle" style="font-weight: bold; color:#0d6efd">Available Devs:</h2>
+      </div>
+      <div class="card-body">
+        <div class="card-body1">
+          <div>
+            <p style="color: #0d6efd;">Filter the profiles by using the checkboxes below <span style="color: #ffc107">(Select the languages, Frameworks or libraries:)</span>: </p>
+          </div>
+        <div>
+          <form class="form" action="{{url_for('filtering')}}" method="POST">
+            <div class="col-md-12">
+                <div class="btn-group" role="group" aria-label="Basic checkbox toggle button group" id="filter1">
+                    <input type="checkbox" class="btn-check" id="html" name="html" autocomplete="off">
+                    <label class="btn btn-outline-primary" for="html">HTML</label>
+                    <input type="checkbox" class="btn-check" id="css" name="css" autocomplete="off">
+                    <label class="btn btn-outline-primary" for="css">CSS</label>
+                    <input type="checkbox" class="btn-check" id="js" name="js" autocomplete="off">
+                    <label class="btn btn-outline-primary" for="js">JS</label>
+                    <input type="checkbox" class="btn-check" id="ruby" name="ruby" autocomplete="off">
+                    <label class="btn btn-outline-primary" for="ruby">Ruby</label>
+                    <input type="checkbox" class="btn-check" id="python" name="python" autocomplete="off">
+                    <label class="btn btn-outline-primary" for="python">Python</label>
+                    <input type="checkbox" class="btn-check" id="sql" name="sql" autocomplete="off">
+                    <label class="btn btn-outline-primary" for="sql">SQL</label>
+                </div>
+                <div class="btn-group" role="group" aria-label="Basic checkbox toggle button group" id="filter2">
+                  <input type="checkbox" class="btn-check" id="java" name="java" autocomplete="off">
+                  <label class="btn btn-outline-primary" for="java">JAVA</label>
+                  <input type="checkbox" class="btn-check" id="csharp" name="csharp" autocomplete="off">
+                  <label class="btn btn-outline-primary" for="csharp">C#</label>
+                  <input type="checkbox" class="btn-check" id="cplus" name="cplus" autocomplete="off">
+                  <label class="btn btn-outline-primary" for="cplus">C++</label>
+                  <input type="checkbox" class="btn-check" id="go" name="go" autocomplete="off">
+                  <label class="btn btn-outline-primary" for="go">Go</label>
+                  <input type="checkbox" class="btn-check" id="kotlin" name="kotlin" autocomplete="off">
+                  <label class="btn btn-outline-primary" for="kotlin">Kotlin</label>
+                  <input type="checkbox" class="btn-check" id="php" name="php" autocomplete="off">
+                  <label class="btn btn-outline-primary" for="php">PHP</label>
+                </div>
+                <div>
+                </div>
+                <div class="btn-group" role="group" aria-label="Basic checkbox toggle button group" id="filter3">
+                  <input type="checkbox" class="btn-check" id="flask" name="flask" autocomplete="off">
+                  <label class="btn btn-outline-primary" for="flask">Flask</label>
+                  <input type="checkbox" class="btn-check" id="rails" name="rails" autocomplete="off">
+                  <label class="btn btn-outline-primary" for="rails">Rails</label>
+                  <input type="checkbox" class="btn-check" id="spring" name="spring" autocomplete="off">
+                  <label class="btn btn-outline-primary" for="spring">Spring</label>
+                  <input type="checkbox" class="btn-check" id="django" name="django" autocomplete="off">
+                  <label class="btn btn-outline-primary" for="django">Django</label>
+                  <input type="checkbox" class="btn-check" id="react" name="react" autocomplete="off">
+                  <label class="btn btn-outline-primary" for="react">react</label>
+                  <input type="checkbox" class="btn-check" id="bottle" name="bottle" autocomplete="off">
+                  <label class="btn btn-outline-primary" for="bottle">Bottle</label>
+                </div>
+                <div class="btn-group" role="group" aria-label="Basic checkbox toggle button group" id="filter4">
+                  <input type="checkbox" class="btn-check" id="angular" name="angular" autocomplete="off">
+                  <label class="btn btn-outline-primary" for="angular">Angular</label>
+                  <input type="checkbox" class="btn-check" id="boostrap" name="boostrap" autocomplete="off">
+                  <label class="btn btn-outline-primary" for="boostrap">Boostrap</label>
+                  <input type="checkbox" class="btn-check" id="grails" name="grails" autocomplete="off">
+                  <label class="btn btn-outline-primary" for="grails">Grails</label>
+                  <input type="checkbox" class="btn-check" id="laravel" name="laravel" autocomplete="off">
+                  <label class="btn btn-outline-primary" for="laravel">Laravel</label>
+                  <input type="checkbox" class="btn-check" id="cpp" name="cpp" autocomplete="off">
+                  <label class="btn btn-outline-primary" for="cpp">CPP</label>
+                  <input type="checkbox" class="btn-check" id="blazor" name="blazor" autocomplete="off">
+                  <label class="btn btn-outline-primary" for="blazor">Blazor</label>
+                </div>
+            </div>
+            <div class="col-md-12">
+              <p></p>
+              <button type="submit" class="btn btn-primary">Filter</button>
+              <p></p>
+            </div>
+        </form>          
+        </div>
+        </div>
+        <div class="card-body2">
+          <div id='card-body2a' class="card" >
+            <div class="card-body2a1" id="cardleft">
+              {% for i in super_users %}
+              <div class="card card-body2a1">
+                  <div class="card-header" id="user_header">
+                    <div id="user_headera">
+                      <h3 style="color: #0d6efd;">{{i.first_name}} {{i.last_name[0:1]}}.</h3>
+                    </div>
+
+                  </div>
+                  <div id="testx{{i.id}}"></div>
+                  <div  class="card-body">
+                    <h5 class="card-title"><span style="color: #0d6efd;">Bio: </span> {{i.bio}}</h5>
+                    <p id="test{{i.id}}" class="card-text"><span style="color: #0d6efd;">GitHub User: </span> {{i.githubuser}}</p>
+                    <a href="/org/user/{{i.id}}" class="btn btn-primary">Check User</a>
+                  </div>
+                  <div class="card-footer text-body-secondary">
+                    <span style="color: #0d6efd;">Email Address: </span> {{i.email}}
+                  </div>
+              </div>
+              {%endfor%}
+            </div>
+
+          </div>
+        </div>
+      </div>
+      <div class="card-footer text-body-secondary">
+
+      </div>
+    </div>
+    <div id="card_about_us2" class="card text-center" style="width: 40rem;">
+      <div class="card-header">
+        <h2 class="align-middle" style="font-weight: bold; color:#0d6efd">Your listed postions:</h2>
+      </div>
+      <div class="card-body card2">
+        <div class="card-body2">
+          <div id='card-body2a' class="card" >
+            <div class="card-body2a1" id="cardleft">
+              {% for i in positions %}
+              <div class="card card-body2a1">
+                <div>
+                  <a href="/position/{{i.id}}">{{i.position_name}} at {{i.org.org_name}}</a>
+                </div>
+              </div>
+              {%endfor%}
+            </div>
+
+          </div>
+        </div>
+      </div>
+      <div class="card-footer text-body-secondary">
+        <form class="form" action="{{ url_for('list_new_postion') }}" method="POST">
+          <input class='btn btn-primary' type="submit" value="List a New Position">
+        </form>
+      </div>
+    </div>
+  </main>
+</body>
+</html>

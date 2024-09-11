@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Preahvihear&family=Roboto:ital,wght@0,400;1,100&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='stylex5.css') }}"> <!--Link to style.css with jinja-->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous"><!--Link for boostrap-->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script><!--script for boostrap-->
+  <!-- Additional styles for the circular image and card organization -->
+
+  <title>Document</title>
+</head>
+<body>
+  <header>
+    <div class="header1">
+      <h1 style="color: white;"><span style="color: rgb(249, 157, 194) ;">Dev</span>el<span style="color:  rgb(237, 208, 134);">oper</span> See<span style="color: #0d6efd ;">ker</span></h1>
+    </div>
+    <div class="header2">
+      <form id="dashbutton" class="form" action="{{ url_for('org_dashboard') }}" method="POST">
+        <input class='btn btn-primary' type="submit" value="Dashboard">
+      </form>
+      <form class="form" action="{{ url_for('log_out') }}" method="POST">
+        <input class='btn btn-warning' type="submit" value="logout">
+      </form>
+    </div>
+  </header>
+  <main>
+    <!-- Add the user profile card -->
+    <div id="user-profile-card" class="card text-center profile-card" style="width: 80rem;">
+      <!-- Profile Picture Section (Replace 'path/to/user/profile/image.jpg' with the actual path to the image) -->
+      <div class="profile-info">
+        <img id="github-photo" src="#" alt="User Profile Image" class="profile-image">
+        <div>
+          <h2 style="font-size: 1.5rem;">{{user.first_name}} {{user.last_name}}</h2>
+          <img id="country_flag" src="path/to/flag-image.jpg" alt="Country Flag" style="width: 20px; height: 15px;">
+        </div>
+        <input id="country" type="hidden" name="html" value={{user.country}}>
+      </div>
+
+      <div class="card-body">
+        <!-- Bio Section -->
+        <div class="card-body1">
+          <p><span style="color: #0d6efd;">Bio:</span> <span id="github-bio" style="font-weight: bold;">{{user.bio}}</span></p>
+        </div>
+
+        <!-- GitHub Info Section -->
+        <div class="card-body1">
+          <p><span style="color: #0d6efd;">GitHub User:</span> <span id="github-username" style="font-weight: bold;">{{user.githubuser}}</span></p>
+          
+          <p><span style="color: #0d6efd;">Followers in GitHub: </span><span id="github-followers" style="font-weight: bold;">0</span></p>
+        </div>
+
+        <!-- Additional Info Section -->
+        <div class="card-body2">
+          <p><span style="color: #0d6efd;">Email: </span><span id="github-followers" style="font-weight: bold;">{{user.email}}</span></p>
+        </div>
+      </div>
+      <div class="card-body">
+        <div id='card-body2a' >
+        <div class="card-body2b">
+          <div class="card-body2a1">
+            {%if user.html=="True"%}
+            <img src="{{ url_for('static', filename='images/html2.png') }}" class="icons" id="html" onclick="addtoskills(this)" alt="iconhtml">
+            {%endif%}
+            {%if user.css=="True"%}
+            <img src="{{ url_for('static', filename='images/css.jpg') }}" class="icons" id="css" onclick="addtoskills(this)" alt="iconcss">
+            {%endif%}
+            {%if user.js=="True"%}
+            <img src="{{ url_for('static', filename='images/JavaScript.png') }}" class="icons" id="js" onclick="addtoskills(this)" alt="iconjs">
+            {%endif%}
+            {%if user.ruby=="True"%}
+            <img src="{{ url_for('static', filename='images/ruby.jpg') }}" class="icons" id="ruby" onclick="addtoskills(this)" alt="iconruby">
+            {%endif%}
+            {%if user.python=="True"%}
+            <img src="{{ url_for('static', filename='images/python.png') }}" class="icons" id="python" onclick="addtoskills(this)" alt="iconpython">
+            {%endif%}
+            {%if user.sql=="True"%}
+            <img src="{{ url_for('static', filename='images/sql.jpg') }}" class="icons" id="sql" onclick="addtoskills(this)" alt="iconsql">
+            {%endif%}
+            {%if user.java=="True"%}
+            <img src="{{ url_for('static', filename='images/java.png') }}" class="icons" id="java" onclick="addtoskills(this)" alt="iconjava">
+            {%endif%}
+            {%if user.csharp=="True"%}
+            <img src="{{ url_for('static', filename='images/Csharp.png') }}" class="icons" id="csharp" onclick="addtoskills(this)" alt="iconsharp">
+            {%endif%}
+            {%if user.cplus=="True"%}
+            <img src="{{ url_for('static', filename='images/cplus.png') }}" class="icons" id="cplus" onclick="addtoskills(this)" alt="iconcplus">
+            {%endif%}
+            {%if user.go=="True"%}
+            <img src="{{ url_for('static', filename='images/go.jpg') }}" class="icons" id="go" onclick="addtoskills(this)" alt="icongo">
+            {%endif%}
+            {%if user.kotlin=="True"%}
+            <img src="{{ url_for('static', filename='images/kotlin.jpg') }}" class="icons" id="kotlin" onclick="addtoskills(this)" alt="iconkotlin">
+            {%endif%}
+            {%if user.php=="True"%}
+            <img src="{{ url_for('static', filename='images/php.jpg') }}" class="icons" id="php" onclick="addtoskills(this)" alt="iconphp">
+            {%endif%}
+            {%if user.flask=="True"%}
+            <img src="{{ url_for('static', filename='images/flask.jpg') }}" class="icons" id="flask" onclick="addtoskills(this)" alt="iconflask">
+            {%endif%}
+            {%if user.rails=="True"%}
+            <img src="{{ url_for('static', filename='images/rails.png') }}" class="icons" id="rails" onclick="addtoskills(this)" alt="iconrails">
+            {%endif%}
+            {%if user.spring=="True"%}
+            <img src="{{ url_for('static', filename='images/spring.png') }}" class="icons" id="spring" onclick="addtoskills(this)" alt="iconspring">
+            {%endif%}
+            {%if user.django=="True"%}
+            <img src="{{ url_for('static', filename='images/django.png') }}" class="icons" id="django" onclick="addtoskills(this)" alt="icondjango">
+            {%endif%}
+            {%if user.react=="True"%}
+            <img src="{{ url_for('static', filename='images/react.png') }}" class="icons" id="react" onclick="addtoskills(this)" alt="iconreact">
+            {%endif%}
+            {%if user.bottle=="True"%}
+            <img src="{{ url_for('static', filename='images/bottle.jpg') }}" class="icons" id="bottle" onclick="addtoskills(this)" alt="iconbottle">
+            {%endif%}
+            {%if user.angular=="True"%}
+            <img src="{{ url_for('static', filename='images/angular.png') }}" class="icons" id="angular" onclick="addtoskills(this)" alt="iconangular">
+            {%endif%}
+            {%if user.boostrap=="True"%}
+            <img src="{{ url_for('static', filename='images/boostrap.jpg') }}" class="icons" id="boostrap" onclick="addtoskills(this)" alt="iconboostrap">
+            {%endif%}
+            {%if user.grails=="True"%}
+            <img src="{{ url_for('static', filename='images/grails.png') }}" class="icons" id="grails" onclick="addtoskills(this)" alt="icongrails">
+            {%endif%}
+            {%if user.laravel=="True"%}
+            <img src="{{ url_for('static', filename='images/laravel.jpg') }}" class="icons" id="laravel" onclick="addtoskills(this)" alt="laravel">
+            {%endif%}
+            {%if user.blazor=="True"%}
+            <img src="{{ url_for('static', filename='images/blazor.png') }}" class="icons" id="blazor" onclick="addtoskills(this)" alt="iconblazor">
+            {%endif%}
+            {%if user.cpp=="True"%}
+            <img src="{{ url_for('static', filename='images/cpp.jpg') }}" class="icons" id="cpp" onclick="addtoskills(this)" alt="iconcpp">
+            {%endif%}
+        </div>
+      </div>
+        </div>
+
+    </div>
+      <div class="card-footer text-body-secondary">
+        <div class="card-footer1">
+          <!-- Add any additional content as needed -->
+        </div>
+        <div class="card-footer2">
+          <!-- Add any additional buttons or content as needed -->
+
+        </div>
+      </div>
+    </div>
+
+    <!-- Your existing main content remains unchanged -->
+  </main>
+  <script src="{{ url_for('static', filename='git_org.js') }}"></script>
+</body>
+</html>

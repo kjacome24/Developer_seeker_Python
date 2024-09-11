@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Preahvihear&family=Roboto:ital,wght@0,400;1,100&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='stylex3.css') }}"> <!--Link to style.css with jinja-->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous"><!--Link for boostrap-->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script><!--script for boostrap-->
+  <title>Document</title>
+</head>
+<body>
+  <header>
+    <div class="header1">
+        <h1 style="color: white;"><span style="color: rgb(249, 157, 194) ;">Dev</span>el<span style="color:  rgb(237, 208, 134);">oper</span> See<span style="color: #0d6efd ;">ker</span></h1>
+    </div>
+    <div class="header2">
+      <form id="dashbutton" class="form" action="{{ url_for('org_dashboard') }}" method="POST">
+        <input class='btn btn-primary' type="submit" value="Dashboard">
+      </form>
+      <form class="form" action="{{ url_for('log_out') }}" method="POST">
+        <input class='btn btn-warning' type="submit" value="logout">
+      </form>
+    </div>
+  </header>
+  <main>
+    <div id="card_about_us" class="card text-center" style="width: 80rem;">
+      <div class="card-header">
+        <div class="card-header1">
+          <h2 class="align-middle" style="font-weight: bold; color:#0d6efd">Add a New Position:</h2>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="card-body1">
+          <div class="card-body1a">
+            <label style="color: #0d6efd;" for="position_name" class="form-label" id="label_position_name" >New Role Name:</label>
+            <input type="text" class="form-control" name="position_name" id="position_name" oninput="setname(this)">
+          </div>
+          <div class="card-body1a">
+            <p></p>
+            <p style="color: #0d6efd;">Pick the requested languages, frameworks and libraries:</p>
+            {% with messages = get_flashed_messages() %}  <!-- declara una variable llamada mensajes-->
+            {% if messages %}<!-- comprobar si hay algún mensaje -->
+                {% for message in messages %}<!-- recorrer los mensajes -->
+                    <p style="color: red;margin-left: 50px;">{{message}}</p><!-- muestra cada mensaje en una etiqueta de párrafo -->
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+          </div>
+          <div class="card-body1b card"><!--Do not delete-->
+            <div id="added_skills"></div>
+
+          </div>
+        </div>
+        <div class="card-body">
+          <div id='card-body2a' >
+          <div class="card-body2b">
+            <div class="card-body2a1">
+              <img src="../static/images/html2.png" class="icons" id="html" onclick="addtoskills(this)" alt="iconhtml">
+              <img src="../static/images/css.jpg" class="icons" id="css" onclick="addtoskills(this)" alt="iconcss">
+              <img src="../static/images/JavaScript.png" class="icons" id="js" onclick="addtoskills(this)" alt="iconjs">
+              <img src="../static/images/ruby.jpg" class="icons" id="ruby" onclick="addtoskills(this)" alt="iconruby">
+              <img src="../static/images/python.png" class="icons" id="python" onclick="addtoskills(this)" alt="iconpython">
+              <img src="../static/images/sql.jpg" class="icons" id="sql" onclick="addtoskills(this)" alt="iconsql">
+              <img src="../static/images/java.png" class="icons" id="java" onclick="addtoskills(this)" alt="iconjava">
+              <img src="../static/images/Csharp.png" class="icons" id="csharp" onclick="addtoskills(this)" alt="iconsharp">
+              <img src="../static/images/cplus.png" class="icons" id="cplus" onclick="addtoskills(this)" alt="iconcplus">
+              <img src="../static/images/go.jpg" class="icons" id="go" onclick="addtoskills(this)" alt="icongo">
+              <img src="../static/images/kotlin.jpg" class="icons" id="kotlin" onclick="addtoskills(this)" alt="iconkotlin">
+              <img src="../static/images/php.jpg" class="icons" id="php" onclick="addtoskills(this)" alt="iconphp">
+          </div>
+        </div>
+
+            <div class="card-body2a1">
+                <img src="../static/images/flask.jpg" class="icons" id="flask" onclick="addtoskills(this)" alt="iconflask">
+                <img src="../static/images/rails.png" class="icons" id="rails" onclick="addtoskills(this)" alt="iconrails">
+                <img src="../static/images/spring.png" class="icons" id="spring" onclick="addtoskills(this)" alt="iconspring">
+                <img src="../static/images/django.png" class="icons" id="django" onclick="addtoskills(this)" alt="icondjango">
+                <img src="../static/images/react.png" class="icons" id="react" onclick="addtoskills(this)" alt="iconreact">
+                <img src="../static/images/bottle.jpg" class="icons" id="bottle" onclick="addtoskills(this)" alt="iconbottle">
+                <img src="../static/images/angular.png" class="icons" id="angular" onclick="addtoskills(this)" alt="iconangular">
+                <img src="../static/images/boostrap.jpg" class="icons" id="boostrap" onclick="addtoskills(this)" alt="iconboostrap">
+                <img src="../static/images/grails.png" class="icons" id="grails" onclick="addtoskills(this)" alt="icongrails">
+                <img src="../static/images/laravel.jpg" class="icons" id="laravel" onclick="addtoskills(this)" alt="laravel">
+                <img src="../static/images/blazor.png" class="icons" id="blazor" onclick="addtoskills(this)" alt="iconblazor">
+                <img src="../static/images/cpp.jpg" class="icons" id="cpp" onclick="addtoskills(this)" alt="iconcpp">
+            </div>
+
+          </div>
+
+      </div>
+      <div class="card-footer text-body-secondary">
+        <div class="card-footer1">
+        </div>
+        <div class="card-footer2">
+          <form id='nextstepform' class="form" action="{{ url_for('creating_new') }}" method="POST">
+            <input id="position_name2" type="hidden" name="position_name" value="">
+            <input id="html3" type="hidden" name="html" value=False>
+            <input id="css3" type="hidden" name="css" value=False>
+            <input id="js3" type="hidden" name="js" value=False>
+            <input id="ruby3" type="hidden" name="ruby" value=False>
+            <input id="python3" type="hidden" name="python" value=False>
+            <input id="sql3" type="hidden" name="sql" value=False>
+            <input id="java3" type="hidden" name="java" value=False>
+            <input id="csharp3" type="hidden" name="csharp" value=False>
+            <input id="cplus3" type="hidden" name="cplus" value=False>
+            <input id="go3" type="hidden" name="go" value=False>
+            <input id="kotlin3" type="hidden" name="kotlin" value=False>
+            <input id="php3" type="hidden" name="php" value=False>
+            <input id="flask3" type="hidden" name="flask" value=False>
+            <input id="rails3" type="hidden" name="rails" value=False>
+            <input id="spring3" type="hidden" name="spring" value=False>
+            <input id="django3" type="hidden" name="django" value=False>
+            <input id="react3" type="hidden" name="react" value=False>
+            <input id="bottle3" type="hidden" name="bottle" value=False>
+            <input id="angular3" type="hidden" name="angular" value=False>
+            <input id="boostrap3" type="hidden" name="boostrap" value=False>
+            <input id="grails3" type="hidden" name="grails" value=False>
+            <input id="laravel3" type="hidden" name="laravel" value=False>
+            <input id="blazor3" type="hidden" name="blazor" value=False>
+            <input id="cpp3" type="hidden" name="cpp" value=False>
+            <input class='btn btn-primary' type="submit" value="Create a New Role">
+            
+          </form>
+        </div>
+      </div>
+    </div>
+  </main>
+  <script src="{{ url_for('static', filename='script.js') }}"></script> <!--Script for JS file if exists-->
+</body>
+</html>
